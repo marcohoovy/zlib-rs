@@ -1,7 +1,7 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-use core::ffi::{c_char, c_int, c_uchar, c_uint, c_ulong, c_void};
+use core::ffi::{c_char, c_int, c_uchar, c_uint, c_ulong, c_ulonglong, c_void};
 
 use crate::allocate::Allocator;
 
@@ -56,10 +56,10 @@ pub type voidpf = *mut c_void;
 pub struct z_stream {
     pub next_in: *const Bytef,
     pub avail_in: uInt,
-    pub total_in: z_size,
+    pub total_in: ,
     pub next_out: *mut Bytef,
     pub avail_out: uInt,
-    pub total_out: z_size,
+    pub total_out: ,
     pub msg: *mut c_char,
     pub state: *mut internal_state,
     pub zalloc: Option<alloc_func>,
@@ -123,7 +123,7 @@ impl z_stream {
 }
 
 // // zlib stores Adler-32 and CRC-32 checksums in unsigned long; zlib-ng uses uint32_t.
-pub(crate) type z_size = c_ulong;
+pub(crate) type z_size = c_ulonglong;
 pub(crate) type z_checksum = c_ulong;
 
 // opaque to the user
