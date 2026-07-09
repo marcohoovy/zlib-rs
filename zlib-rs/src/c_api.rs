@@ -124,7 +124,7 @@ impl z_stream {
 
 // // zlib stores Adler-32 and CRC-32 checksums in unsigned long; zlib-ng uses uint32_t.
 pub(crate) type z_size = c_ulonglong;
-pub(crate) type z_checksum = c_ulong;
+pub(crate) type z_checksum = c_ulonglong;
 
 // opaque to the user
 pub enum internal_state {}
@@ -175,7 +175,7 @@ pub struct gz_header {
     /// true if compressed data believed to be text
     pub text: i32,
     /// modification time
-    pub time: c_ulong,
+    pub time: c_ulonglong,
     /// extra flags (not used when writing a gzip file)
     pub xflags: i32,
     /// operating system
