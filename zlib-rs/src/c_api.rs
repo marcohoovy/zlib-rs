@@ -56,10 +56,10 @@ pub type voidpf = *mut c_void;
 pub struct z_stream {
     pub next_in: *const Bytef,
     pub avail_in: uInt,
-    pub total_in: ,
+    pub total_in: z_size,
     pub next_out: *mut Bytef,
     pub avail_out: uInt,
-    pub total_out: ,
+    pub total_out: z_size,
     pub msg: *mut c_char,
     pub state: *mut internal_state,
     pub zalloc: Option<alloc_func>,
